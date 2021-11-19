@@ -7,17 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23BA1F758CAF4BCAE52E01FA /* Pods_HelloWeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265E12EDF8E5EBE34F2BDC89 /* Pods_HelloWeatherTests.framework */; };
 		3B9D35A02746CA0400D72EFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D359F2746CA0400D72EFF /* AppDelegate.swift */; };
 		3B9D35A22746CA0400D72EFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35A12746CA0400D72EFF /* SceneDelegate.swift */; };
 		3B9D35A42746CA0400D72EFF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35A32746CA0400D72EFF /* HomeViewController.swift */; };
 		3B9D35A72746CA0400D72EFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B9D35A52746CA0400D72EFF /* Main.storyboard */; };
 		3B9D35A92746CA0700D72EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9D35A82746CA0700D72EFF /* Assets.xcassets */; };
 		3B9D35AC2746CA0700D72EFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B9D35AA2746CA0700D72EFF /* LaunchScreen.storyboard */; };
-		3B9D35C62746CC6600D72EFF /* HelloWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35C52746CC6600D72EFF /* HelloWeatherTests.swift */; };
+		3B9D35CD2746CD8400D72EFF /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35CC2746CD8400D72EFF /* NetworkClient.swift */; };
+		3B9D35CF2746CED500D72EFF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35CE2746CED500D72EFF /* API.swift */; };
+		3B9D35D12746D29F00D72EFF /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35D02746D29F00D72EFF /* Place.swift */; };
+		3B9D35ED2746F38C00D72EFF /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35EC2746F38C00D72EFF /* SearchResultCell.swift */; };
+		3B9D35EF2746FFC600D72EFF /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35EE2746FFC600D72EFF /* HomeDetailViewController.swift */; };
+		3B9D35F22747167B00D72EFF /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35F12747167B00D72EFF /* SideMenuViewController.swift */; };
+		3B9D35F4274719BD00D72EFF /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35F3274719BD00D72EFF /* SideMenuCell.swift */; };
+		3B9D35F727471ED200D72EFF /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35F627471ED200D72EFF /* Builder.swift */; };
+		3B9D35F927477F7A00D72EFF /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35F827477F7A00D72EFF /* HomeModel.swift */; };
+		3B9D35FB27477F8900D72EFF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35FA27477F8900D72EFF /* HomeViewModel.swift */; };
+		3B9D35FD27477FAA00D72EFF /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35FC27477FAA00D72EFF /* HomeProtocols.swift */; };
+		3B9D35FF2747938800D72EFF /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D35FE2747938800D72EFF /* SearchResultsViewController.swift */; };
+		3B9D36012747AC5800D72EFF /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D36002747AC5800D72EFF /* WeatherModel.swift */; };
+		3B9D36042747BC7100D72EFF /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D36032747BC7100D72EFF /* AppExtensions.swift */; };
+		3B9D36092747E41B00D72EFF /* WeatherCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D36082747E41B00D72EFF /* WeatherCollectionCell.swift */; };
+		BB826BEEFC7F5EC93E89A667 /* Pods_HelloWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1D5E877A7966C748A05F00 /* Pods_HelloWeather.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3B9D35C72746CC6600D72EFF /* PBXContainerItemProxy */ = {
+		3B9D35E72746E94F00D72EFF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3B9D35942746CA0400D72EFF /* Project object */;
 			proxyType = 1;
@@ -27,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01734270A3B1381F12F5D600 /* Pods-HelloWeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWeatherTests.release.xcconfig"; path = "Target Support Files/Pods-HelloWeatherTests/Pods-HelloWeatherTests.release.xcconfig"; sourceTree = "<group>"; };
+		12F57AB36EB2B6A43D8E8944 /* Pods-HelloWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWeather.debug.xcconfig"; path = "Target Support Files/Pods-HelloWeather/Pods-HelloWeather.debug.xcconfig"; sourceTree = "<group>"; };
+		265E12EDF8E5EBE34F2BDC89 /* Pods_HelloWeatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloWeatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9D359C2746CA0400D72EFF /* HelloWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9D359F2746CA0400D72EFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B9D35A12746CA0400D72EFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,8 +54,25 @@
 		3B9D35A82746CA0700D72EFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B9D35AB2746CA0700D72EFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B9D35AD2746CA0700D72EFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B9D35C32746CC6600D72EFF /* HelloWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B9D35C52746CC6600D72EFF /* HelloWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWeatherTests.swift; sourceTree = "<group>"; };
+		3B9D35CC2746CD8400D72EFF /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		3B9D35CE2746CED500D72EFF /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		3B9D35D02746D29F00D72EFF /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		3B9D35E32746E94F00D72EFF /* HelloWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B9D35EC2746F38C00D72EFF /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResultCell.swift; path = ../../../../Documents/Flutter/SearchResultCell.swift; sourceTree = "<group>"; };
+		3B9D35EE2746FFC600D72EFF /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
+		3B9D35F12747167B00D72EFF /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		3B9D35F3274719BD00D72EFF /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
+		3B9D35F627471ED200D72EFF /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		3B9D35F827477F7A00D72EFF /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		3B9D35FA27477F8900D72EFF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		3B9D35FC27477FAA00D72EFF /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		3B9D35FE2747938800D72EFF /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		3B9D36002747AC5800D72EFF /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		3B9D36032747BC7100D72EFF /* AppExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
+		3B9D36082747E41B00D72EFF /* WeatherCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionCell.swift; sourceTree = "<group>"; };
+		4F1D5E877A7966C748A05F00 /* Pods_HelloWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A67B176B2DA2426133F6DCA7 /* Pods-HelloWeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWeatherTests.debug.xcconfig"; path = "Target Support Files/Pods-HelloWeatherTests/Pods-HelloWeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FC0DB9715A5713F5235F976F /* Pods-HelloWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWeather.release.xcconfig"; path = "Target Support Files/Pods-HelloWeather/Pods-HelloWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,13 +80,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB826BEEFC7F5EC93E89A667 /* Pods_HelloWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B9D35C02746CC6600D72EFF /* Frameworks */ = {
+		3B9D35E02746E94F00D72EFF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23BA1F758CAF4BCAE52E01FA /* Pods_HelloWeatherTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,8 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				3B9D359E2746CA0400D72EFF /* HelloWeather */,
-				3B9D35C42746CC6600D72EFF /* HelloWeatherTests */,
+				3B9D35E42746E94F00D72EFF /* HelloWeatherTests */,
 				3B9D359D2746CA0400D72EFF /* Products */,
+				C32F93A27B0F1A558C366989 /* Pods */,
+				41DDAAB1E6CF37BD749774C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				3B9D359C2746CA0400D72EFF /* HelloWeather.app */,
-				3B9D35C32746CC6600D72EFF /* HelloWeatherTests.xctest */,
+				3B9D35E32746E94F00D72EFF /* HelloWeatherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +118,7 @@
 		3B9D359E2746CA0400D72EFF /* HelloWeather */ = {
 			isa = PBXGroup;
 			children = (
+				3B9D36022747BC6100D72EFF /* Extensions */,
 				3B9D35B82746CA7300D72EFF /* AppDelegations */,
 				3B9D35B92746CA7600D72EFF /* Resources */,
 				3B9D35B32746CA1500D72EFF /* Networking */,
@@ -90,6 +131,7 @@
 		3B9D35B32746CA1500D72EFF /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3B9D35CC2746CD8400D72EFF /* NetworkClient.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -97,8 +139,11 @@
 		3B9D35B42746CA3500D72EFF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3B9D35A52746CA0400D72EFF /* Main.storyboard */,
+				3B9D35F02747165300D72EFF /* SideMenu */,
 				3B9D35B52746CA4000D72EFF /* Home */,
 				3B9D35B62746CA5800D72EFF /* HomeDetails */,
+				3B9D35F627471ED200D72EFF /* Builder.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -118,6 +163,7 @@
 		3B9D35B62746CA5800D72EFF /* HomeDetails */ = {
 			isa = PBXGroup;
 			children = (
+				3B9D36052747E34400D72EFF /* View */,
 			);
 			name = HomeDetails;
 			sourceTree = "<group>";
@@ -125,6 +171,7 @@
 		3B9D35B72746CA7000D72EFF /* API */ = {
 			isa = PBXGroup;
 			children = (
+				3B9D35CE2746CED500D72EFF /* API.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -151,6 +198,7 @@
 		3B9D35BA2746CB6900D72EFF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B9D35F827477F7A00D72EFF /* HomeModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -158,8 +206,9 @@
 		3B9D35BB2746CB6C00D72EFF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3B9D35A52746CA0400D72EFF /* Main.storyboard */,
 				3B9D35A32746CA0400D72EFF /* HomeViewController.swift */,
+				3B9D35EC2746F38C00D72EFF /* SearchResultCell.swift */,
+				3B9D35FE2747938800D72EFF /* SearchResultsViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -167,6 +216,7 @@
 		3B9D35BC2746CB6F00D72EFF /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				3B9D35FC27477FAA00D72EFF /* HomeProtocols.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -174,6 +224,8 @@
 		3B9D35BD2746CB9200D72EFF /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				3B9D35D02746D29F00D72EFF /* Place.swift */,
+				3B9D36002747AC5800D72EFF /* WeatherModel.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -181,16 +233,62 @@
 		3B9D35BE2746CBA200D72EFF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3B9D35FA27477F8900D72EFF /* HomeViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
 		};
-		3B9D35C42746CC6600D72EFF /* HelloWeatherTests */ = {
+		3B9D35E42746E94F00D72EFF /* HelloWeatherTests */ = {
 			isa = PBXGroup;
 			children = (
-				3B9D35C52746CC6600D72EFF /* HelloWeatherTests.swift */,
 			);
 			path = HelloWeatherTests;
+			sourceTree = "<group>";
+		};
+		3B9D35F02747165300D72EFF /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3B9D35F12747167B00D72EFF /* SideMenuViewController.swift */,
+				3B9D35F3274719BD00D72EFF /* SideMenuCell.swift */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		3B9D36022747BC6100D72EFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3B9D36032747BC7100D72EFF /* AppExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		3B9D36052747E34400D72EFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B9D35EE2746FFC600D72EFF /* HomeDetailViewController.swift */,
+				3B9D36082747E41B00D72EFF /* WeatherCollectionCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		41DDAAB1E6CF37BD749774C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F1D5E877A7966C748A05F00 /* Pods_HelloWeather.framework */,
+				265E12EDF8E5EBE34F2BDC89 /* Pods_HelloWeatherTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C32F93A27B0F1A558C366989 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				12F57AB36EB2B6A43D8E8944 /* Pods-HelloWeather.debug.xcconfig */,
+				FC0DB9715A5713F5235F976F /* Pods-HelloWeather.release.xcconfig */,
+				A67B176B2DA2426133F6DCA7 /* Pods-HelloWeatherTests.debug.xcconfig */,
+				01734270A3B1381F12F5D600 /* Pods-HelloWeatherTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +298,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B9D35B02746CA0700D72EFF /* Build configuration list for PBXNativeTarget "HelloWeather" */;
 			buildPhases = (
+				5C79FCADC4C48EBC3A491E94 /* [CP] Check Pods Manifest.lock */,
 				3B9D35982746CA0400D72EFF /* Sources */,
 				3B9D35992746CA0400D72EFF /* Frameworks */,
 				3B9D359A2746CA0400D72EFF /* Resources */,
+				192EF9DEE2496088D9695BFC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -213,22 +313,23 @@
 			productReference = 3B9D359C2746CA0400D72EFF /* HelloWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3B9D35C22746CC6600D72EFF /* HelloWeatherTests */ = {
+		3B9D35E22746E94F00D72EFF /* HelloWeatherTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B9D35C92746CC6600D72EFF /* Build configuration list for PBXNativeTarget "HelloWeatherTests" */;
+			buildConfigurationList = 3B9D35E92746E94F00D72EFF /* Build configuration list for PBXNativeTarget "HelloWeatherTests" */;
 			buildPhases = (
-				3B9D35BF2746CC6600D72EFF /* Sources */,
-				3B9D35C02746CC6600D72EFF /* Frameworks */,
-				3B9D35C12746CC6600D72EFF /* Resources */,
+				23785F347AAAF21F54491CEA /* [CP] Check Pods Manifest.lock */,
+				3B9D35DF2746E94F00D72EFF /* Sources */,
+				3B9D35E02746E94F00D72EFF /* Frameworks */,
+				3B9D35E12746E94F00D72EFF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3B9D35C82746CC6600D72EFF /* PBXTargetDependency */,
+				3B9D35E82746E94F00D72EFF /* PBXTargetDependency */,
 			);
 			name = HelloWeatherTests;
 			productName = HelloWeatherTests;
-			productReference = 3B9D35C32746CC6600D72EFF /* HelloWeatherTests.xctest */;
+			productReference = 3B9D35E32746E94F00D72EFF /* HelloWeatherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -244,7 +345,7 @@
 					3B9D359B2746CA0400D72EFF = {
 						CreatedOnToolsVersion = 13.0;
 					};
-					3B9D35C22746CC6600D72EFF = {
+					3B9D35E22746E94F00D72EFF = {
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = 3B9D359B2746CA0400D72EFF;
 					};
@@ -264,7 +365,7 @@
 			projectRoot = "";
 			targets = (
 				3B9D359B2746CA0400D72EFF /* HelloWeather */,
-				3B9D35C22746CC6600D72EFF /* HelloWeatherTests */,
+				3B9D35E22746E94F00D72EFF /* HelloWeatherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -280,7 +381,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B9D35C12746CC6600D72EFF /* Resources */ = {
+		3B9D35E12746E94F00D72EFF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,32 +390,110 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		192EF9DEE2496088D9695BFC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelloWeather/Pods-HelloWeather-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelloWeather/Pods-HelloWeather-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelloWeather/Pods-HelloWeather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23785F347AAAF21F54491CEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HelloWeatherTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C79FCADC4C48EBC3A491E94 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HelloWeather-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3B9D35982746CA0400D72EFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B9D35ED2746F38C00D72EFF /* SearchResultCell.swift in Sources */,
+				3B9D35F4274719BD00D72EFF /* SideMenuCell.swift in Sources */,
 				3B9D35A42746CA0400D72EFF /* HomeViewController.swift in Sources */,
+				3B9D36042747BC7100D72EFF /* AppExtensions.swift in Sources */,
+				3B9D35F727471ED200D72EFF /* Builder.swift in Sources */,
+				3B9D35FF2747938800D72EFF /* SearchResultsViewController.swift in Sources */,
+				3B9D35FD27477FAA00D72EFF /* HomeProtocols.swift in Sources */,
 				3B9D35A02746CA0400D72EFF /* AppDelegate.swift in Sources */,
 				3B9D35A22746CA0400D72EFF /* SceneDelegate.swift in Sources */,
+				3B9D35CD2746CD8400D72EFF /* NetworkClient.swift in Sources */,
+				3B9D36092747E41B00D72EFF /* WeatherCollectionCell.swift in Sources */,
+				3B9D35D12746D29F00D72EFF /* Place.swift in Sources */,
+				3B9D35FB27477F8900D72EFF /* HomeViewModel.swift in Sources */,
+				3B9D35F927477F7A00D72EFF /* HomeModel.swift in Sources */,
+				3B9D35CF2746CED500D72EFF /* API.swift in Sources */,
+				3B9D35F22747167B00D72EFF /* SideMenuViewController.swift in Sources */,
+				3B9D36012747AC5800D72EFF /* WeatherModel.swift in Sources */,
+				3B9D35EF2746FFC600D72EFF /* HomeDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B9D35BF2746CC6600D72EFF /* Sources */ = {
+		3B9D35DF2746E94F00D72EFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B9D35C62746CC6600D72EFF /* HelloWeatherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3B9D35C82746CC6600D72EFF /* PBXTargetDependency */ = {
+		3B9D35E82746E94F00D72EFF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3B9D359B2746CA0400D72EFF /* HelloWeather */;
-			targetProxy = 3B9D35C72746CC6600D72EFF /* PBXContainerItemProxy */;
+			targetProxy = 3B9D35E72746E94F00D72EFF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -456,6 +635,7 @@
 		};
 		3B9D35B12746CA0700D72EFF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12F57AB36EB2B6A43D8E8944 /* Pods-HelloWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -483,6 +663,7 @@
 		};
 		3B9D35B22746CA0700D72EFF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC0DB9715A5713F5235F976F /* Pods-HelloWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -508,8 +689,9 @@
 			};
 			name = Release;
 		};
-		3B9D35CA2746CC6600D72EFF /* Debug */ = {
+		3B9D35EA2746E94F00D72EFF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A67B176B2DA2426133F6DCA7 /* Pods-HelloWeatherTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -530,8 +712,9 @@
 			};
 			name = Debug;
 		};
-		3B9D35CB2746CC6600D72EFF /* Release */ = {
+		3B9D35EB2746E94F00D72EFF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01734270A3B1381F12F5D600 /* Pods-HelloWeatherTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -573,11 +756,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B9D35C92746CC6600D72EFF /* Build configuration list for PBXNativeTarget "HelloWeatherTests" */ = {
+		3B9D35E92746E94F00D72EFF /* Build configuration list for PBXNativeTarget "HelloWeatherTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B9D35CA2746CC6600D72EFF /* Debug */,
-				3B9D35CB2746CC6600D72EFF /* Release */,
+				3B9D35EA2746E94F00D72EFF /* Debug */,
+				3B9D35EB2746E94F00D72EFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

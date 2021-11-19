@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "wi-thermometer-exterior.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,26 @@
+PODS:
+  - Realm (10.20.0):
+    - Realm/Headers (= 10.20.0)
+  - Realm/Headers (10.20.0)
+  - RealmSwift (10.20.0):
+    - Realm (= 10.20.0)
+  - SideMenu (6.5.0)
+
+DEPENDENCIES:
+  - RealmSwift
+  - SideMenu
+
+SPEC REPOS:
+  trunk:
+    - Realm
+    - RealmSwift
+    - SideMenu
+
+SPEC CHECKSUMS:
+  Realm: ae32bdc1da7d19c7617e0400201a77acd4a211b9
+  RealmSwift: c95eec6a712924870b2e36c4c081d63ec07e5414
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+
+PODFILE CHECKSUM: 9b04311bd843a1eb79f3953157e9cd05ef8fbc40
+
+COCOAPODS: 1.11.2
