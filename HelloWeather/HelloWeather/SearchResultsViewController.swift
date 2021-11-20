@@ -48,9 +48,7 @@ class SearchResultsViewController: UITableViewController {
         var screenshot = Screenshot()
         screenshot.appendSections([1])
         screenshot.appendItems(places)
-        self.dataSource.apply(screenshot, animatingDifferences: true) {
-            print("TableView Updated")
-        }
+        self.dataSource.apply(screenshot, animatingDifferences: true) {}
     }
     
     override

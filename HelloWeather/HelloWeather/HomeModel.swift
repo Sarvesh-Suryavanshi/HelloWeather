@@ -21,7 +21,6 @@ extension HomeModel: HomeModelProtocol {
                                    outputType: Weather.self) { result in
             switch result {
             case .success(let weather):
-                print(weather)
                 completion(weather)
             default:
                 completion(nil)
@@ -35,7 +34,6 @@ extension HomeModel: HomeModelProtocol {
                                    outputType: Weather.self) { result in
             switch result {
             case .success(let weather):
-                print(weather)
                 completion(weather)
             default:
                 completion(nil)
@@ -50,7 +48,6 @@ extension HomeModel: HomeModelProtocol {
                                        outputType: [Place].self) { result in
                 switch result {
                 case .success(let searchResult):
-                    print(searchResult)
                     completion(searchResult)
                 default:
                     completion(nil)

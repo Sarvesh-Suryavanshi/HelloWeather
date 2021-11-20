@@ -34,13 +34,28 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="A1J-c2-ezS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="GV9-cD-aBX"/>
+                            <constraint firstItem="A1J-c2-ezS" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="S1R-0M-LiW"/>
                             <constraint firstItem="vKl-b8-Iup" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Wok-kq-iMe"/>
                             <constraint firstItem="A1J-c2-ezS" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="Znn-mr-F9P"/>
-                            <constraint firstAttribute="trailing" secondItem="A1J-c2-ezS" secondAttribute="trailing" id="ibK-ZZ-WBc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vKl-b8-Iup" secondAttribute="bottom" constant="25" id="kFH-mb-6C4"/>
                             <constraint firstItem="A1J-c2-ezS" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="os6-sa-l14"/>
-                            <constraint firstItem="A1J-c2-ezS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="vDo-um-94g"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="S1R-0M-LiW"/>
+                                <exclude reference="Znn-mr-F9P"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="S1R-0M-LiW"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Znn-mr-F9P"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

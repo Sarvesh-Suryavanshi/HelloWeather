@@ -33,7 +33,7 @@ class NetworkClient {
             
             do {
                 // Printing response here for reviewer of the asignment
-                if let jsonString = String(data: data, encoding: .utf8) { print(jsonString) }
+                //if let jsonString = String(data: data, encoding: .utf8) { print(jsonString) }
                 let outputModel = try decoder.decode(outputType, from: data)
                 completion(.success(outputModel))
             } catch let decodingError {
