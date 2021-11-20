@@ -6,13 +6,24 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - SearchResult
-struct Place: Codable, Hashable {
-    let id: Int
-    let name: String
-    let region: String
-    let country: String
-    let lat, lon: Double
-    let url: String
+class Place: Object, Codable {
+    
+    @objc dynamic var id: Int
+    @objc dynamic var name: String
+    @objc dynamic var region: String
+    @objc dynamic var country: String
+    @objc dynamic var lat, lon: Double
+    
+    convenience init(id: Int, name: String, region: String, country: String, lat: Double, lon: Double) {
+        self.init()
+        self.id = id
+        self.name = name
+        self.region = region
+        self.country = country
+        self.lat = lat
+        self.lon = lon
+    }
 }

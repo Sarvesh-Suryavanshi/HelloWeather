@@ -1,5 +1,5 @@
 //
-//  WeatherModel.swift
+//  Weather.swift
 //  HelloWeather
 //
 //  Created by Sarvesh Suryavanshi on 19/11/21.
@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - WeatherModel
-struct WeatherModel: Codable {
+struct Weather: Codable {
     let location: Location
     let current: Current
     let forecast: Forecast?

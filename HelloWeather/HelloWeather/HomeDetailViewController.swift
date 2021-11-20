@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 class HomeDetailViewController: UIViewController {
     
@@ -14,30 +15,25 @@ class HomeDetailViewController: UIViewController {
     
     @IBOutlet weak var mapkitView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var temperatureLabel: UILabel!
+
     weak var viewModel: HomeViewModelProtocol?
     private var dataSource: UICollectionViewDiffableDataSource<Int, Hour>!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let defaultPlace = self.viewModel?.selectedPlace {
-            self.setLocation(lat: defaultPlace.lat, long: defaultPlace.lon)
-        }
-    
+        self.setLocation(place: PersistentStore.shared.place)
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         self.collectionView.collectionViewLayout = flowLayout
-        
         addDataSource()
         updateCollectionView()
     }
     
-    func setLocation(lat: Double, long: Double) {
+    func setLocation(place: Place) {
         var region: MKCoordinateRegion = MKCoordinateRegion()
-        region.center.latitude = lat
-        region.center.longitude = long
+        region.center.latitude = place.lat
+        region.center.longitude = place.lon
         region.span.longitudeDelta = 0.2
         region.span.latitudeDelta = 0.2
         self.mapkitView.setRegion(region, animated: false)
@@ -71,9 +67,8 @@ class HomeDetailViewController: UIViewController {
             var screenshot = NSDiffableDataSourceSnapshot<Int, Hour>()
             screenshot.appendSections([1])
             screenshot.appendItems(viewModel.hours)
-            self.dataSource.apply(screenshot, animatingDifferences: true) {
-                print("TableView Updated")
-            }
+            self.dataSource.apply(screenshot, animatingDifferences: true) { print("TableView Updated") }
+            self.temperatureLabel.text = viewModel.temperature
         }
     }
     
@@ -89,5 +84,4 @@ extension HomeDetailViewController: UICollectionViewDelegateFlowLayout, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 60, height: 150)
     }
-    
 }

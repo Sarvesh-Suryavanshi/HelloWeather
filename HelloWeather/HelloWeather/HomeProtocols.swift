@@ -27,9 +27,6 @@ protocol HomeViewModelProtocol: AnyObject {
     var preasure: String { get }
     var windSpeed: String { get }
     
-    var selectedPlace: Place { get }
-    
-    
     var locationName: String { get }
 
     var hasForecastData: Bool { get }
@@ -49,7 +46,7 @@ protocol HomeModelProtocol: AnyObject {
     
     func fetchSearchResults(searchText: String, completion: @escaping ([Place]?) -> Void)
     
-    func fetchWeather(for place: Place, completion: @escaping (WeatherModel?) -> Void)
+    func fetchWeather(for place: Place, completion: @escaping (Weather?) -> Void)
     
-    func fetchWeatherForecase(for place: Place, days: Int, completion: @escaping (WeatherModel?) -> Void)
+    func fetchWeatherForecase(for place: Place, days: Int, completion: @escaping (Weather?) -> Void)
 }

@@ -13,10 +13,10 @@ class HomeModel {
 
 extension HomeModel: HomeModelProtocol {
     
-    func fetchWeather(for place: Place, completion: @escaping (WeatherModel?) -> Void) {
+    func fetchWeather(for place: Place, completion: @escaping (Weather?) -> Void) {
         
         NetworkClient.loadAndParse(request: API.currentWeather(place.name).rawValue,
-                                   outputType: WeatherModel.self) { result in
+                                   outputType: Weather.self) { result in
             switch result {
             case .success(let weather):
                 print(weather)
@@ -27,10 +27,10 @@ extension HomeModel: HomeModelProtocol {
         }
     }
     
-    func fetchWeatherForecase(for place: Place, days: Int, completion: @escaping (WeatherModel?) -> Void) {
+    func fetchWeatherForecase(for place: Place, days: Int, completion: @escaping (Weather?) -> Void) {
         
         NetworkClient.loadAndParse(request: API.forecase(place.name, days).rawValue,
-                                   outputType: WeatherModel.self) { result in
+                                   outputType: Weather.self) { result in
             switch result {
             case .success(let weather):
                 print(weather)

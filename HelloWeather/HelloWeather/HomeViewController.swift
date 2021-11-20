@@ -7,8 +7,8 @@
 
 import UIKit
 import SideMenu
-
-
+import Realm
+import RealmSwift
 
 class SearchResultsView: UIViewController {
     override func viewDidLoad() {
@@ -36,28 +36,27 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var pressureLabel: UILabel!
     @IBOutlet weak var showForecastBtn: UIButton!
-
+    
     
     // MARK: - Properties
-
+    
     private var dataSource: UITableViewDiffableDataSource<Int, Place>!
     private var sideMenu: SideMenuNavigationController!
     private var viewModel: HomeViewModelProtocol?
-    
+    private lazy var defaultPlace: Place = Place(id: 1125257, name: "Mumbai, Maharashtra, India", region: "Maharashtra",
+                                            country: "India", lat: 18.98, lon: 72.83)
     
     private var searchController: UISearchController!
     
     // MARK: - View Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupViewModel()
         setupSearchController()
         setupSideMenu()
-        if let defaultPlace = self.viewModel?.selectedPlace {
-            self.viewModel?.fetchWeatherForecase(for: defaultPlace, days: 1)
-        }
+        self.viewModel?.fetchWeatherForecase(for: PersistentStore.shared.place, days: 1)
     }
     
     private func setupViewModel() {
@@ -69,11 +68,13 @@ class HomeViewController: UIViewController {
         searchResultController?.delegate = self
         searchController = UISearchController(searchResultsController: searchResultController)
         searchController.searchResultsUpdater = self
+        searchController.searchBar.tintColor = .black
         navigationItem.searchController = searchController
     }
     
     private func setupSideMenu() {
         guard let sideMenuView = Builder.buildSideMenuView() else { return }
+        sideMenuView.delegate = self
         self.sideMenu = SideMenuNavigationController(rootViewController: sideMenuView)
         self.sideMenu.leftSide = true
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
@@ -116,7 +117,7 @@ extension HomeViewController: HomeViewProtocol {
     
     func didReceives(searchResults: [Place]) {
         print(searchResults)
-
+        
         guard
             !searchResults.isEmpty,
             let searchResultViewController = self.searchController.searchResultsController as? SearchResultsViewController
@@ -133,10 +134,18 @@ extension HomeViewController: UISearchResultsUpdating {
     }
 }
 
+extension HomeViewController: SideMenuProtocol {
+    func didUpdateAppSettings() {
+        print("Menu Updated")
+        self.updateWeatherDetails()
+    }
+}
+
 extension HomeViewController: SearchResultsProtocol {
     
     func didSelect(place: Place, at indexPath: IndexPath) {
         self.searchController.searchBar.text = ""
+        PersistentStore.shared.update(object: place)
         self.viewModel?.fetchWeatherForecase(for: place, days: 1)
     }
 }

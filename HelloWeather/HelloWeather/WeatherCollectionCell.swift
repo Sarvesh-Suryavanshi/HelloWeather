@@ -18,7 +18,10 @@ class WeatherCollectionCell: UICollectionViewCell {
     static let reuseIdentifier: String = String(describing: WeatherCollectionCell.self)
     
     func configureCell(hour: Hour) {
-        self.temperatureLabel.text = hour.tempC.temperatureFormat
+        let appSettings = PersistentStore.shared.appSettings
+        let unit = appSettings.isTemperatureInDegree ? TemperatureUnit.degree.textRepresentation : TemperatureUnit.farenheight.textRepresentation
+        let value = (appSettings.isTemperatureInDegree ? hour.tempC.description : hour.tempF.description)
+        self.temperatureLabel.text = value + unit
         self.timeLabel.text = hour.time.displayTimeText
         
         if let iconURL = hour.condition.icon.url {
