@@ -49,11 +49,6 @@ struct Current: Codable {
         case humidity, cloud
         case feelslikeC = "feelslike_c"
         case feelslikeF = "feelslike_f"
-      //  case visKM = "vis_km"
-//        case visMiles = "vis_miles"
-//        case uv
-//        case gustMph = "gust_mph"
-//        case gustKph = "gust_kph"
     }
 }
 
@@ -100,12 +95,7 @@ struct Astro: Codable {
 struct Day: Codable {
     let maxtempC, maxtempF, mintempC, mintempF: Double
     let avgtempC, avgtempF, maxwindMph, maxwindKph: Double
- //   let totalprecipMm: Int?
- //   let totalprecipIn, avgvisKM: Double?
-//    let avgvisMiles, avghumidity, dailyWillItRain, dailyChanceOfRain: Int
-//    let dailyWillItSnow, dailyChanceOfSnow: Int
     let condition: Condition
-//    let uv: Double?
 
     enum CodingKeys: String, CodingKey {
         case maxtempC = "maxtemp_c"
@@ -116,17 +106,7 @@ struct Day: Codable {
         case avgtempF = "avgtemp_f"
         case maxwindMph = "maxwind_mph"
         case maxwindKph = "maxwind_kph"
-//        case totalprecipMm = "totalprecip_mm"
-       // case totalprecipIn = "totalprecip_in"
-       // case avgvisKM = "avgvis_km"
-//        case avgvisMiles = "avgvis_miles"
-//        case avghumidity
-//        case dailyWillItRain = "daily_will_it_rain"
-//        case dailyChanceOfRain = "daily_chance_of_rain"
-//        case dailyWillItSnow = "daily_will_it_snow"
-//        case dailyChanceOfSnow = "daily_chance_of_snow"
         case condition
-//        case uv
     }
 }
 
@@ -148,12 +128,6 @@ struct Hour: Codable, Hashable {
     let pressureMB: Int
     let pressureIn, precipMm, precipIn: Double
     let humidity, cloud: Int
-//    let feelslikeC, feelslikeF, windchillC, windchillF: Double
-//    let heatindexC, heatindexF, dewpointC, dewpointF: Double
-//    let willItRain, chanceOfRain, willItSnow, chanceOfSnow: Int
-//    let visKM, visMiles: Double?
-//    let gustMph, gustKph: Double?
-//    let uv: Int
 
     enum CodingKeys: String, CodingKey {
         case timeEpoch = "time_epoch"
@@ -171,23 +145,6 @@ struct Hour: Codable, Hashable {
         case precipMm = "precip_mm"
         case precipIn = "precip_in"
         case humidity, cloud
-//        case feelslikeC = "feelslike_c"
-//        case feelslikeF = "feelslike_f"
-//        case windchillC = "windchill_c"
-//        case windchillF = "windchill_f"
-//        case heatindexC = "heatindex_c"
-//        case heatindexF = "heatindex_f"
-//        case dewpointC = "dewpoint_c"
-//        case dewpointF = "dewpoint_f"
-//        case willItRain = "will_it_rain"
-//        case chanceOfRain = "chance_of_rain"
-//        case willItSnow = "will_it_snow"
-//        case chanceOfSnow = "chance_of_snow"
-      //  case visKM = "vis_km"
-//        case visMiles = "vis_miles"
-//        case gustMph = "gust_mph"
-//        case gustKph = "gust_kph"
-//        case uv
     }
 }
 

@@ -47,25 +47,13 @@ extension PersistentStore {
 //    }
     
     func update(object: Object) {
-        self.deleteAllObjects(of: type(of: object))
         let realm = self.realmInstance
         try! realm.write({
-            realm.add(place)
+            let objects = realm.objects(type(of: object))
+            realm.delete(objects)
+            realm.add(object)
         })
     }
-    
-    private func deleteAllObjects(of type: Object.Type) {
-        let realm = self.realmInstance
-        let objects = realm.objects(type)
-        if !objects.isEmpty {
-            try! realm.write({
-                objects.forEach { object in
-                    realm.delete(object)
-                }
-            })
-        }
-    }
-
 }
 
 // APP SETTINGS
