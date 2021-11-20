@@ -7,28 +7,35 @@
 
 import Foundation
 
+// MARK: - HomeView Protocol
 
 protocol HomeViewProtocol: AnyObject {
     
     func didReceives(searchResults: [Place])
     
     func didReceivesWeatherDetails()
-
 }
+
+// MARK: - HomeViewModel Protocol
 
 protocol HomeViewModelProtocol: AnyObject {
     
     var temperature: String { get }
+    
     var date: String { get }
+    
     var weatherStatus: String { get }
     
     var cloudPercentage: String { get }
+    
     var humidityPercentage: String { get }
+    
     var preasure: String { get }
+    
     var windSpeed: String { get }
     
     var locationName: String { get }
-
+    
     var hasForecastData: Bool { get }
     
     var hours: [Hour] { get }
@@ -38,9 +45,9 @@ protocol HomeViewModelProtocol: AnyObject {
     func fetchWeather(for place: Place)
     
     func fetchWeatherForecase(for place: Place, days: Int)
-
-    
 }
+
+// MARK: - HomeModel Protocol
 
 protocol HomeModelProtocol: AnyObject {
     

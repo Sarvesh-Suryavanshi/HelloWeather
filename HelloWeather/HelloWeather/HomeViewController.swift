@@ -11,7 +11,9 @@ import Realm
 import RealmSwift
 
 class SearchResultsView: UIViewController {
-    override func viewDidLoad() {
+    
+    override
+    func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .green
     }
@@ -27,10 +29,8 @@ class HomeViewController: UIViewController {
             self.temperatureLabel.addAnimation()
         }
     }
-    
     @IBOutlet weak var waetherStatusLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var cloudLabel: UILabel!
     @IBOutlet weak var windLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
@@ -40,17 +40,16 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var dataSource: UITableViewDiffableDataSource<Int, Place>!
     private var sideMenu: SideMenuNavigationController!
     private var viewModel: HomeViewModelProtocol?
     private lazy var defaultPlace: Place = Place(id: 1125257, name: "Mumbai, Maharashtra, India", region: "Maharashtra",
-                                            country: "India", lat: 18.98, lon: 72.83)
-    
+                                                 country: "India", lat: 18.98, lon: 72.83)
     private var searchController: UISearchController!
     
     // MARK: - View Lifecycle
     
-    override func viewDidLoad() {
+    override
+    func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupViewModel()
@@ -58,6 +57,14 @@ class HomeViewController: UIViewController {
         setupSideMenu()
         self.viewModel?.fetchWeatherForecase(for: PersistentStore.shared.place, days: 1)
     }
+    
+    override
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationView = segue.destination as? HomeDetailViewController else { return }
+        destinationView.viewModel = self.viewModel
+    }
+    
+    // MARK: - Private Methods
     
     private func setupViewModel() {
         self.viewModel = HomeViewModel(model: HomeModel(), view: self)
@@ -82,7 +89,6 @@ class HomeViewController: UIViewController {
     }
     
     private func updateWeatherDetails() {
-        
         guard let viewModel = self.viewModel else { return }
         self.temperatureLabel.text = viewModel.temperature
         self.temperatureLabel.removeAnimation()
@@ -96,14 +102,10 @@ class HomeViewController: UIViewController {
         self.navigationItem.title = viewModel.locationName
     }
     
+    // MARK: - IBAction Methods
+    
     @IBAction func didTapOnMenu() {
         self.present(sideMenu, animated: true, completion: nil)
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationView = segue.destination as? HomeDetailViewController else { return }
-        destinationView.viewModel = self.viewModel
     }
 }
 
@@ -116,8 +118,6 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     func didReceives(searchResults: [Place]) {
-        print(searchResults)
-        
         guard
             !searchResults.isEmpty,
             let searchResultViewController = self.searchController.searchResultsController as? SearchResultsViewController
@@ -136,7 +136,6 @@ extension HomeViewController: UISearchResultsUpdating {
 
 extension HomeViewController: SideMenuProtocol {
     func didUpdateAppSettings() {
-        print("Menu Updated")
         self.updateWeatherDetails()
     }
 }
@@ -147,23 +146,5 @@ extension HomeViewController: SearchResultsProtocol {
         self.searchController.searchBar.text = ""
         PersistentStore.shared.update(object: place)
         self.viewModel?.fetchWeatherForecase(for: place, days: 1)
-    }
-}
-
-
-extension UILabel {
-    
-    func addAnimation() {
-        let animation = CABasicAnimation(keyPath: "opacity")
-        animation.fromValue = 1.0
-        animation.toValue = 0.4
-        animation.duration = 0.75
-        animation.repeatCount = .infinity
-        animation.autoreverses = true
-        self.layer.add(animation, forKey: nil)
-    }
-    
-    func removeAnimation() {
-        self.layer.removeAllAnimations()
     }
 }

@@ -223,7 +223,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b1U-rf-PLa">
                                                                 <rect key="frame" x="169" y="0.0" width="169" height="102"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wi-night-cloudy-windy" translatesAutoresizingMaskIntoConstraints="NO" id="hFP-7C-Ocl">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wi-day-cloudy-windy" translatesAutoresizingMaskIntoConstraints="NO" id="hFP-7C-Ocl">
                                                                         <rect key="frame" x="8" y="26" width="48" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="48" id="Gdv-OB-LgF"/>
@@ -806,9 +806,9 @@
         <image name="rectangle.topthird.inset.filled" catalog="system" width="128" height="93"/>
         <image name="wi-celsius" width="23" height="23"/>
         <image name="wi-cloudy" width="23" height="23"/>
+        <image name="wi-day-cloudy-windy" width="23" height="23"/>
         <image name="wi-fahrenheit" width="23" height="23"/>
         <image name="wi-humidity" width="23" height="23"/>
-        <image name="wi-night-cloudy-windy" width="23" height="23"/>
         <image name="wi-windy" width="23" height="23"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

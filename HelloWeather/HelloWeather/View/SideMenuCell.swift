@@ -6,12 +6,13 @@
 //
 
 import UIKit
-import RealmSwift
 
+/// SideMenuCell Protocol Definition
 protocol SideMenuCellProtocol: AnyObject {
     func didUpdateAppSettings()
 }
 
+/// Side Drawer Menus
 class SideMenuCell: UITableViewCell {
     
     // MARK: - IBOutlet
@@ -19,13 +20,20 @@ class SideMenuCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    // MARK: - Properties
+    
     static let reuseIdentifier: String = String(describing: SideMenuCell.self)
     private var currentMenu: Menu = .logout
     weak var delegate: SideMenuCellProtocol?
-
-    override func awakeFromNib() {
+    
+    // MARK: - Cell Lifecycle Methods
+    
+    override
+    func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    // MARK: - IBAction Methods
     
     @IBAction func segmentControlValueChanged(_ sender: UISegmentedControl) {
         switch currentMenu {
@@ -44,8 +52,9 @@ class SideMenuCell: UITableViewCell {
         }
     }
     
+    // MARK: - Public Methods
+    
     func configureCell(menu: Menu) {
-        
         self.currentMenu = menu
         self.titleLabel.text = menu.rawValue
         self.segmentControl.isHidden = !menu.showSegmentControl
@@ -55,12 +64,12 @@ class SideMenuCell: UITableViewCell {
             for index in 0...menu.segmentControlOptions {
                 if menu == .temperatureMenu {
                     selectedSegmentIndex = PersistentStore.shared.appSettings.isTemperatureInDegree == true ? 0 : 1
-                    if let text = TemperatureUnit.init(rawValue: index)?.textRepresentation {
+                    if let text = TemperatureUnit.init(rawValue: index)?.unitInText {
                         self.segmentControl.setTitle(text, forSegmentAt: index)
                     }
                 } else if menu == .windSpeedMenu {
                     selectedSegmentIndex = PersistentStore.shared.appSettings.isWindSpeedKMPH == true ? 0 : 1
-                    if let text = WindSpeed.init(rawValue: index)?.textRepresentation {
+                    if let text = WindSpeed.init(rawValue: index)?.unitInText {
                         self.segmentControl.setTitle(text, forSegmentAt: index)
                     }
                 }

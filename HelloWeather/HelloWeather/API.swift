@@ -7,11 +7,8 @@
 
 import Foundation
 
-
-// WeatherAPI.COM
-
-
-//  API KEY = 23ca91a6706985eb33ff77426059c1b1
+/// Refer WeatherAPI.com for API Descriptions
+/// https://www.weatherapi.com/docs/
 
 /// Enum representing web services
 enum API {
@@ -21,10 +18,9 @@ enum API {
     case forecase(String, Int)
     case astronomy(String, Date)
     case Sports(String)
-
     
     var rawValue: URLRequest? {
-      
+        
         switch(self) {
             
         case .search(let place):
@@ -61,7 +57,7 @@ extension API {
         components.host = "api.weatherapi.com"
         return components
     }
-        
+    
     private func searchURL(place: String) -> URL? {
         var component = self.baseURLComponent
         component.path = "/v1/search.json"
@@ -103,7 +99,6 @@ extension API {
     }
 }
 
-
 extension API {
     
     private func standardQueryItems(for place: String)-> [URLQueryItem] {
@@ -112,21 +107,3 @@ extension API {
         return [placeQuery, apiIdQuery]
     }
 }
-
-
-// Search
-//  https://api.weatherapi.com/v1/search.json?key=ce15f5c469ca42bc833190218211811&q=lon
-
-
-//  https://cdn.weatherapi.com/weather/64x64/night/176.png
-
-//-   ------------
-
-
-// SEARCH
-//   https://openweathermap.org/data/2.5/find?q={CITY}&appid=439d4b804bc8187953eb36d2a8c26a02&units=metric
-
-
-// "https://openweathermap.org/data/2.5/find?q=Pune&appid=439d4b804bc8187953eb36d2a8c26a02&units=metric"
-
-// "https://openweathermap.org/data/2.5/find?q=Pune&appid=a04ce05e113a55d85d25970b23391d03&units=metric"

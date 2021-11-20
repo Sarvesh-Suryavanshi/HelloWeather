@@ -8,6 +8,7 @@
 import UIKit
 import SideMenu
 
+/// Menu Options Enum
 enum Menu: String, Hashable {
     
     case temperatureMenu = "Temperature Unit"
@@ -24,37 +25,38 @@ enum Menu: String, Hashable {
         }
     }
     var segmentControlOptions: Int {
-            switch self {
-            case .temperatureMenu:
-                return 2
-            case .windSpeedMenu:
-                return 2
-            default:
-                return 0
-            }
+        switch self {
+        case .temperatureMenu:
+            return 2
+        case .windSpeedMenu:
+            return 2
+        default:
+            return 0
         }
+    }
 }
 
+///SideMenu Protocol Definition
 protocol SideMenuProtocol: AnyObject {
     func didUpdateAppSettings()
 }
 
+/// SideMenuView Controller
 class SideMenuViewController: UITableViewController {
     
     // MARK: - Properties
     
     static let identifier: String = String(describing: SideMenuViewController.self)
-
     private var dataSource: UITableViewDiffableDataSource<Int, Menu>!
-        
     weak var delegate: SideMenuProtocol?
     
-    override func viewDidLoad() {
+    override
+    func viewDidLoad() {
         super.viewDidLoad()
         self.setupDataSource()
         self.setupMenus()
     }
-
+    
     func setupDataSource() {
         dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, menu in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuCell.reuseIdentifier, for: indexPath) as? SideMenuCell else { return UITableViewCell() }
@@ -75,7 +77,8 @@ class SideMenuViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
 }

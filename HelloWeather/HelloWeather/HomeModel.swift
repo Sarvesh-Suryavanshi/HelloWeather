@@ -8,8 +8,10 @@
 import Foundation
 
 class HomeModel {
-    
+    private let mimimumSearchCount = 3
 }
+
+// MARK: - HomeModelProtocol Methods
 
 extension HomeModel: HomeModelProtocol {
     
@@ -43,7 +45,7 @@ extension HomeModel: HomeModelProtocol {
     
     func fetchSearchResults(searchText: String, completion: @escaping ([Place]?) -> Void) {
         
-        if searchText.count > 3 {
+        if searchText.count > self.mimimumSearchCount {
             NetworkClient.loadAndParse(request: API.search(searchText).rawValue,
                                        outputType: [Place].self) { result in
                 switch result {

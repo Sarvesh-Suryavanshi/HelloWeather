@@ -7,47 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
-    
-    /// Returns name of a current instance of view controller
-    class var name: String {
-        return String(describing: self)
-    }
-    
-    /// Tells us if loading indicator for current instance of view controller is being shown or not
-    /// - Returns: true if loading indicator is already being shown
-    func isShowingLoadingIndicator() -> Bool {
-        if let _ = self.presentedViewController as? UIAlertController {
-            return true
-        }
-        return false
-    }
-    
-    /// Shows Loading Indicator on current instance of View Controller
-    /// - Parameter message: message description
-    func showLoadingIndicator(message: String? = "Loading...") {
-        if !self.isShowingLoadingIndicator() {
-            DispatchQueue.main.async {
-            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            let alertIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-            alertIndicator.hidesWhenStopped = true
-            alertIndicator.style = .large
-            alertIndicator.startAnimating()
-            alertController.view.addSubview(alertIndicator)
-            self.present(alertController, animated: true, completion: nil)
-            }
-        }
-    }
-    
-    /// Dismiss Loading Indicator on current instance of View Controller
-    func dismissLoadingIndicator() {
-        DispatchQueue.main.async {
-            if let alertController = self.presentedViewController as? UIAlertController {
-                alertController.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
-}
+// MARK: - DateFormatter Extension
 
 extension DateFormatter {
     
@@ -68,8 +28,9 @@ extension DateFormatter {
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter
     }
-
 }
+
+// MARK: - Date Extension
 
 extension Date {
     
@@ -82,13 +43,69 @@ extension Date {
     }
 }
 
-extension TimeInterval {
+// MARK: - String Extension
+
+extension String {
     
-    var displayTime: String {
-        guard self > 0 && self < Double.infinity else { return "" }
-        let time = NSInteger(self)
-        let minutes = (time / 60) % 60
-        let hours = (time / 3600)
-        return String(format: "%0.2d:%0.2d hours", hours, minutes)
+    var url: URL? {
+        return URL(string: "https:\(self)")
+    }
+}
+
+// MARK: - Int Extension
+
+extension Int {
+    
+    var percentageFormat: String {
+        return "\(self.description)%"
+    }
+    
+    var pressureFormatting: String {
+        return "\(self.description) mBar"
+    }
+}
+
+// MARK: - Double Extension
+
+extension Double {
+    
+    var toInt: Int {
+        return Int(self)
+    }
+}
+
+// MARK: - UIImageView Extension
+
+extension UIImageView {
+    
+    func loadImage(imageURL: URL) {
+        DispatchQueue.global().async {
+            if let imageData = try? Data(contentsOf: imageURL) {
+                if let image = UIImage(data: imageData) {
+                    DispatchQueue.main.async {
+                        self.image = image
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MARK: - UILabel Extension
+
+extension UILabel {
+    
+    func addAnimation() {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 1.0
+        animation.toValue = 0.4
+        animation.duration = 0.75
+        animation.repeatCount = .infinity
+        animation.autoreverses = true
+        self.layer.add(animation, forKey: nil)
+    }
+    
+    func removeAnimation() {
+        self.layer.removeAllAnimations()
     }
 }

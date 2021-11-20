@@ -6,83 +6,89 @@
 //
 
 import Foundation
-import RealmSwift
 
 class HomeViewModel {
     
+    // MARK: - Properties
+    
     private weak var view: HomeViewProtocol?
     private let model: HomeModelProtocol?
+    private var weather: Weather?
     
-    private var weatherForecast: Weather?
+    // MARK: - Initializer
     
     init(model: HomeModelProtocol, view: HomeViewProtocol) {
         self.model = model
-        self.view = view        
+        self.view = view
     }
-}
-
-extension HomeViewModel: HomeViewModelProtocol {
-   
+    
+    // MARK: - Private Methods
+    
     private var appSettings: AppSettings {
         return PersistentStore.shared.appSettings
     }
+}
+
+// MARK: - HomeViewModelProtocol Methods
+
+extension HomeViewModel: HomeViewModelProtocol {
     
     var hours: [Hour] {
         guard
             self.hasForecastData,
-            let forecastDay = self.weatherForecast?.forecast?.forecastday.first,
+            let forecastDay = self.weather?.forecast?.forecastday.first,
             !forecastDay.hour.isEmpty else { return [] }
         return forecastDay.hour
     }
     
     var hasForecastData: Bool {
-        guard let forecast = weatherForecast?.forecast, !forecast.forecastday.isEmpty else { return false }
+        guard let forecast = weather?.forecast, !forecast.forecastday.isEmpty else { return false }
         return true
     }
     
     var locationName: String {
-        return weatherForecast?.location.name ?? "Hello Weather"
+        return weather?.location.name ?? "Hello Weather"
     }
     
     var cloudPercentage: String {
-        return weatherForecast?.current.cloud.percentageFormat ?? ""
+        return weather?.current.cloud.percentageFormat ?? ""
     }
     
     var humidityPercentage: String {
-        return weatherForecast?.current.humidity.percentageFormat ?? ""
+        return weather?.current.humidity.percentageFormat ?? ""
     }
     
     var preasure: String {
-        return weatherForecast?.current.pressureMB.pressureFormatting ?? ""
+        return weather?.current.pressureMB.pressureFormatting ?? ""
     }
     
     var windSpeed: String {
-        guard let value = (appSettings.isWindSpeedKMPH ? weatherForecast?.current.windKph.description : weatherForecast?.current.windMph.description)
+        guard let value = (appSettings.isWindSpeedKMPH ? weather?.current.windKph.description : weather?.current.windMph.description)
         else { return String() }
-        let unit = appSettings.isWindSpeedKMPH ? WindSpeed.kmph.textRepresentation : WindSpeed.mph.textRepresentation
+        let unit = appSettings.isWindSpeedKMPH ? WindSpeed.kmph.unitInText : WindSpeed.mph.unitInText
         return "\(value) \(unit)"
     }
     
     var temperature: String {
-        guard let value = (appSettings.isTemperatureInDegree ? weatherForecast?.current.tempC.toInt.description : weatherForecast?.current.tempF.toInt.description)
+        guard let value = (appSettings.isTemperatureInDegree ? weather?.current.tempC.toInt.description : weather?.current.tempF.toInt.description)
         else { return String() }
-        let unit = appSettings.isTemperatureInDegree ? TemperatureUnit.degree.textRepresentation : TemperatureUnit.farenheight.textRepresentation
+        let unit = appSettings.isTemperatureInDegree ? TemperatureUnit.degree.unitInText : TemperatureUnit.farenheight.unitInText
         return value + unit
     }
     
     var date: String {
-        return weatherForecast?.current.lastUpdated.displayText ?? ""
+        return weather?.current.lastUpdated.displayText ?? ""
     }
     
     var weatherStatus: String {
-        return weatherForecast?.current.condition.text ?? ""
+        return weather?.current.condition.text ?? ""
     }
     
     func fetchWeather(for place: Place) {
-        self.model?.fetchWeather(for: place, completion: { [weak self] weatherForecast in
+        self.model?.fetchWeather(for: place, completion: { [weak self] weather in
             guard let weakSelf = self else { return }
-            weakSelf.weatherForecast = weatherForecast
-            if let _ = weatherForecast {
+            weakSelf.weather = weather
+            if let _ = weather {
                 DispatchQueue.main.async {
                     weakSelf.view?.didReceivesWeatherDetails()
                 }
@@ -91,10 +97,10 @@ extension HomeViewModel: HomeViewModelProtocol {
     }
     
     func fetchWeatherForecase(for place: Place, days: Int) {
-        self.model?.fetchWeatherForecase(for: place, days: days, completion: { [weak self] weatherForecast in
+        self.model?.fetchWeatherForecase(for: place, days: days, completion: { [weak self] weather in
             guard let weakSelf = self else { return }
-            weakSelf.weatherForecast = weatherForecast
-            if let _ = weatherForecast {
+            weakSelf.weather = weather
+            if let _ = weather {
                 DispatchQueue.main.async {
                     weakSelf.view?.didReceivesWeatherDetails()
                 }
@@ -113,23 +119,5 @@ extension HomeViewModel: HomeViewModelProtocol {
                 }
             })
         }
-    }
-}
-
-extension Int {
-    
-    var percentageFormat: String {
-        return "\(self.description)%"
-    }
-    
-    var pressureFormatting: String {
-        return "\(self.description) mBar"
-    }
-}
-
-extension Double {
-    
-    var toInt: Int {
-        return Int(self)
     }
 }

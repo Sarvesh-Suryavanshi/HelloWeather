@@ -5,32 +5,51 @@
 //  Created by Sarvesh Suryavanshi on 19/11/21.
 //
 
-import UIKit
 import MapKit
 import RealmSwift
 
+/// View that shows hourly weather update for selected place
 class HomeDetailViewController: UIViewController {
+    
+    // MARK: - Typealias
+    
+    typealias DataSource = UICollectionViewDiffableDataSource<Int, Hour>
+    typealias Screenshot = NSDiffableDataSourceSnapshot<Int, Hour>
     
     // MARK: - IBOutlet
     
     @IBOutlet weak var mapkitView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var temperatureLabel: UILabel!
-
-    weak var viewModel: HomeViewModelProtocol?
-    private var dataSource: UICollectionViewDiffableDataSource<Int, Hour>!
     
-    override func viewDidLoad() {
+    // MARK: - Properties
+    
+    weak var viewModel: HomeViewModelProtocol?
+    private var dataSource: DataSource!
+    
+    // MARK: - View Lifecycle Methods
+    
+    override
+    func viewDidLoad() {
         super.viewDidLoad()
-        self.setLocation(place: PersistentStore.shared.place)
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        self.collectionView.collectionViewLayout = flowLayout
-        addDataSource()
-        updateCollectionView()
+        self.setupCollectionView()
+        self.addDataSource()
+        self.updateCollectionView()
+        self.updateMap(place: PersistentStore.shared.place)
     }
     
-    func setLocation(place: Place) {
+    // MARK: - Private Methods
+    
+    private func setupCollectionView() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = CGSize(width: 60, height: 150)
+        self.collectionView.collectionViewLayout = flowLayout
+    }
+    
+    /// Update Map for provided place
+    /// - Parameter place: place description
+    private func updateMap(place: Place) {
         var region: MKCoordinateRegion = MKCoordinateRegion()
         region.center.latitude = place.lat
         region.center.longitude = place.lon
@@ -39,21 +58,11 @@ class HomeDetailViewController: UIViewController {
         self.mapkitView.setRegion(region, animated: false)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - Collection View Data Source
     
-    // MARK: - Collection view data source
-    
-    
+    /// Setting up data source for collection view
     private func addDataSource(){
-        self.dataSource = UICollectionViewDiffableDataSource(collectionView: self.collectionView, cellProvider: { collectionView, indexPath, place in
+        self.dataSource = DataSource(collectionView: self.collectionView, cellProvider: { collectionView, indexPath, place in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCollectionCell.reuseIdentifier, for: indexPath) as? WeatherCollectionCell
             else { return UICollectionViewCell() }
             cell.configureCell(hour: place)
@@ -61,27 +70,14 @@ class HomeDetailViewController: UIViewController {
         })
     }
     
+    /// Setting up update logic for collection view
     func updateCollectionView() {
-        
         if let viewModel = self.viewModel {
-            var screenshot = NSDiffableDataSourceSnapshot<Int, Hour>()
+            var screenshot = Screenshot()
             screenshot.appendSections([1])
             screenshot.appendItems(viewModel.hours)
-            self.dataSource.apply(screenshot, animatingDifferences: true) { print("TableView Updated") }
+            self.dataSource.apply(screenshot, animatingDifferences: true) {}
             self.temperatureLabel.text = viewModel.temperature
         }
-    }
-    
-    
-    private func fetchForecastData() {
-        
-    }
-}
-
-
-extension HomeDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: 150)
     }
 }

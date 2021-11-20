@@ -5,24 +5,30 @@
 //  Created by Sarvesh Suryavanshi on 20/11/21.
 //
 
-import Foundation
 import RealmSwift
 
+/// This class is responsible for  handling CRUD operations on Realm
 class PersistentStore {
     
+    // MARK: - Public Properties
+    
     static let shared = PersistentStore()
+    
+    // MARK: - Private Properties
     
     private var realmInstance: Realm {
         try! Realm()
     }
     
-   
+    // Private Initializor
+    
+    private init() {}
 }
 
-// PLACE
+// MARK: - Extension for CRUD operations for general objects in Realm
 
 extension PersistentStore {
-
+    
     var place: Place {
         let realm = self.realmInstance
         let objects = realm.objects(Place.self)
@@ -36,16 +42,6 @@ extension PersistentStore {
         return objects.first!
     }
     
-
-//    var weather: Weather? {
-//        let realm = self.realmInstance
-//        let objects = realm.objects(Weather.self)
-//        if objects.isEmpty {
-//            return nil
-//        }
-//        return objects.first
-//    }
-    
     func update(object: Object) {
         let realm = self.realmInstance
         try! realm.write({
@@ -56,10 +52,11 @@ extension PersistentStore {
     }
 }
 
-// APP SETTINGS
+// MARK: - Extension for CRUD operations for AppSettings
 
 extension PersistentStore {
     
+    /// Returns AppSettings object from Realm
     var appSettings: AppSettings {
         let realm = self.realmInstance
         let objects = realm.objects(AppSettings.self)
@@ -72,6 +69,8 @@ extension PersistentStore {
         return objects.first!
     }
     
+    /// Updates AppSettings isTemperatureInDegree property
+    /// - Parameter isTemperatureInDegree: isTemperatureInDegree description
     func updateAppSettings(isTemperatureInDegree: Bool) {
         let appSettings = PersistentStore.shared.appSettings
         let realm = self.realmInstance
@@ -80,6 +79,8 @@ extension PersistentStore {
         }
     }
     
+    /// Updates AppSettings isWindSpeedKMPH property
+    /// - Parameter isWindSpeedKMPH: isWindSpeedKMPH description
     func updateAppSettings(isWindSpeedKMPH: Bool) {
         let appSettings = PersistentStore.shared.appSettings
         let realm = self.realmInstance

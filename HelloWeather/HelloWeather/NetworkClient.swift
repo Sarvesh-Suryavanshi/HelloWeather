@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// Enum describing API Errors
 enum APIError: Error {
     case badRequest
@@ -30,17 +29,12 @@ class NetworkClient {
             }
             
             let decoder = decoder ?? JSONDecoder()
-           decoder.dateDecodingStrategy = .formatted(DateFormatter.parsingDF)
+            decoder.dateDecodingStrategy = .formatted(DateFormatter.parsingDF)
             
             do {
                 // Printing response here for reviewer of the asignment
                 if let jsonString = String(data: data, encoding: .utf8) { print(jsonString) }
                 let outputModel = try decoder.decode(outputType, from: data)
-               
-                
-                //DispatchQueue.main.async { LocalStorageManager.shared.save() }
-                
-                
                 completion(.success(outputModel))
             } catch let decodingError {
                 print(decodingError.localizedDescription)
@@ -64,8 +58,3 @@ private extension URLResponse {
         }
     }
 }
-
-extension CodingUserInfoKey {
-    static let context = CodingUserInfoKey(rawValue: "Context")
-}
-

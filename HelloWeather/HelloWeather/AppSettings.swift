@@ -20,7 +20,7 @@ enum TemperatureUnit: Int {
     case degree
     case farenheight
     
-    var textRepresentation: String {
+    var unitInText: String {
         switch(self){
         case .degree:
             return "°C"
@@ -34,7 +34,7 @@ enum WindSpeed: Int {
     case kmph
     case mph
     
-    var textRepresentation: String {
+    var unitInText: String {
         switch(self){
         case .kmph:
             return "km/h"

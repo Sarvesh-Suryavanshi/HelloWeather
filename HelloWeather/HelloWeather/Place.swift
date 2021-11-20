@@ -5,7 +5,6 @@
 //  Created by Sarvesh Suryavanshi on 18/11/21.
 //
 
-import Foundation
 import RealmSwift
 
 // MARK: - SearchResult
